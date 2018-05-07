@@ -3,8 +3,8 @@ This project demonstrates NESTED LOOPS (i.e., loops within loops)
 in the context of TWO-DIMENSIONAL GRAPHICS.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and David Ardy.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -80,9 +80,49 @@ def draw_L(window, circle, r, c):
     and m and n are small, positive integers.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+
+    radius = circle.radius
+    for k in range(r+3):
+        circle_left = circle.clone()
+        circle_left.fill_color = circle.fill_color
+        circle_left.attach_to(window)
+
+        circle_middle = circle.clone()
+        circle_middle.fill_color = circle.fill_color
+        circle_middle.center.x += (2 * radius)
+        circle_middle.attach_to(window)
+
+        circle_right = circle.clone()
+        circle_right.fill_color = circle.fill_color
+        circle_right.center.x += (4 * radius)
+        circle_right.attach_to(window)
+
+        circle.center.y += (2 * radius)
+
+    circle.center.y += (-6 * radius)
+    circle.center.x += (6 * radius)
+    for j in range(c+3):
+
+        circle_top = circle.clone()
+        circle_top.fill_color = circle.fill_color
+        circle_top.attach_to(window)
+
+        circle_middle = circle.clone()
+        circle_middle.fill_color = circle.fill_color
+        circle_middle.center.y += (2 * radius)
+        circle_middle.attach_to(window)
+
+        circle_bottom = circle.clone()
+        circle_bottom.fill_color = circle.fill_color
+        circle_bottom.center.y += (4 * radius)
+        circle_bottom.attach_to(window)
+
+        circle.center.x += (2 * radius)
+
+    window.render()
 
 
 def run_test_draw_wall_on_right():
@@ -124,6 +164,8 @@ def draw_wall_on_right(rectangle, n, window):
     # TODO: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+
+
 
 
 # ----------------------------------------------------------------------
